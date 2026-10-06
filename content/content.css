@@ -1,0 +1,116 @@
+/* B站字幕摘录 - 浮窗样式(全部 bsr- 前缀,避免污染页面) */
+
+#bsr-float {
+  position: fixed;
+  top: 110px;
+  right: 18px;
+  z-index: 2147483000;
+  font: 13px/1.5 -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+  text-align: left;
+}
+
+#bsr-float .bsr-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 14px;
+  border-radius: 17px;
+  background: rgba(22, 24, 32, 0.85);
+  color: #fff;
+  cursor: pointer;
+  user-select: none;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+  transition: background 0.2s;
+  max-width: 320px;
+  white-space: nowrap;
+}
+
+#bsr-float .bsr-pill:hover { background: rgba(22, 24, 32, 0.95); }
+#bsr-float[data-state="rec"] .bsr-pill { background: #fb7299; }
+#bsr-float[data-state="rec"] .bsr-pill:hover { background: #fc8bab; }
+
+#bsr-float .bsr-dot {
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #9aa0ad;
+}
+
+#bsr-float[data-state="rec"] .bsr-dot {
+  background: #fff;
+  animation: bsr-pulse 1s ease-in-out infinite;
+}
+
+#bsr-float .bsr-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#bsr-float .bsr-pill.bsr-error { background: #e05656; }
+
+#bsr-float .bsr-panel {
+  margin-top: 8px;
+  width: 300px;
+  background: rgba(22, 24, 32, 0.94);
+  color: #e8e8e8;
+  border-radius: 10px;
+  padding: 10px 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+#bsr-float .bsr-panel[hidden] { display: none; }
+
+#bsr-float .bsr-panel-head {
+  font-size: 12px;
+  color: #aab;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#bsr-float .bsr-preview {
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 110px;
+  max-height: 300px;
+  resize: vertical;
+  overflow-y: auto;
+  scrollbar-width: none; /* 隐藏滚动条(Firefox) */
+  border: 0;
+  outline: none;
+  border-radius: 6px;
+  padding: 8px 10px;
+  font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 12px;
+  line-height: 1.6;
+  color: #ddd;
+  background: rgba(255, 255, 255, 0.07);
+  word-break: break-word;
+}
+
+#bsr-float .bsr-preview::-webkit-scrollbar { width: 0; height: 0; display: none; } /* 隐藏滚动条(Chromium),滚轮滚动保留 */
+
+#bsr-float .bsr-actions { display: flex; gap: 8px; }
+
+#bsr-float .bsr-actions button {
+  flex: 1;
+  border: 0;
+  border-radius: 6px;
+  padding: 6px 0;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+#bsr-float .bsr-copy { background: #fb7299; color: #fff; }
+#bsr-float .bsr-copy:hover { background: #fc8bab; }
+#bsr-float .bsr-collapse { background: rgba(255, 255, 255, 0.14); color: #eee; }
+#bsr-float .bsr-collapse:hover { background: rgba(255, 255, 255, 0.22); }
+
+@keyframes bsr-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}

@@ -1,0 +1,10 @@
+# 只保留插件本体,开发/测试内容仅本地保留
+/SPEC.md
+/CHECKLIST.md
+/ITERATIONS.md
+/test/
+/tools/
+*.log
+Thumbs.db
+Desktop.ini
+.DS_Store

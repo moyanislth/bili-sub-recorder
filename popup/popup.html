@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>B站字幕摘录</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="head">
+    <h1>B站字幕摘录</h1>
+    <span class="count"></span>
+  </header>
+
+  <section class="settings">
+    <div class="row">
+      <button type="button" class="hotkey-btn" title="点击后按下想要的组合键"></button>
+      <span class="hint">摘录快捷键(点击录制)</span>
+    </div>
+    <label class="row ts-row">
+      <input type="checkbox" id="ts-toggle">
+      <span>复制文本带时间戳</span>
+    </label>
+  </section>
+
+  <main class="list"></main>
+
+  <footer class="foot">
+    <span class="foot-status"></span>
+    <span class="foot-btns">
+      <button type="button" class="export-btn">导出</button>
+      <button type="button" class="import-btn">导入</button>
+      <button type="button" class="clear-btn">清空全部</button>
+    </span>
+    <input type="file" id="import-file" accept=".json,application/json" hidden>
+  </footer>
+
+  <script src="../content/core.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
